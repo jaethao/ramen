@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-// Import the model (burger.js) to use its database functions.
+// Import the model (ramen.js) to use its database functions.
 var ramen = require("../models/ramen.js");
 
 // Create all our routes and set up logic within those routes where required.
@@ -30,8 +30,8 @@ router.put("/:id", function(req, res) {
 
   console.log("condition", condition);
 
-  burger.update({
-    devoured: req.body.slurped
+  ramen.update({
+    slurped: req.body.slurped
   }, condition, function() {
     res.redirect("/");
   });
@@ -40,7 +40,7 @@ router.put("/:id", function(req, res) {
 router.delete("/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  burger.delete(condition, function() {
+  ramen.delete(condition, function() {
     res.redirect("/");
   });
 });
