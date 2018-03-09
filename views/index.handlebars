@@ -1,65 +1,67 @@
-<!-- landing page -->
-<div class="main" style="background-image: url('assets/img/ramen-bg.jpg')">
-
-    <div class="cover black" data-color="black"></div>
-
-    <div class="container">
-        <h1 class="logo cursive">
-            Lots of Ramen
-        </h1>
-
-        <div class="content">
-            <h5 class="motto">Ramen is Japanese dish. It consists of Chinese-style wheat noodles served in a meat or (occasionally) fish-based broth, often flavored with soy sauce or miso, and uses toppings such as sliced pork, dried seaweed, menma, and green onions. <a href="https://en.wikipedia.org/wiki/Ramen">Wiki Pedia</a></h5>
-              <br>
-              <br>
-              <div class ="row">
-                <div class="col-md-6">
-                  <ul>
-			                 {{#each ramens}}
-			                    {{#unless this.slurped}}
-			                       <li>
-			      	                  {{this.id}}
-			                             {{this.name}}
-                                   <form action="/{{this.id}}?_method=PUT" method="POST">
-			                                <input type="hidden" name="slurped" value="true">
-			                                <button class="btn-primary" type="submit">Slurped It!</button>
-			                             </form>
-                                </li>
-			                       {{/unless}}
-			                     {{/each}}
-			                </ul>
-                    </div>
-
-                <div class="col-md-6">
-                  <h2>Ramens That Have Been Eaten!</h2>
-			               {{#each ramens}}
-			                  {{#if this.slurped}}
-			                     <li>
-			      	               {{this.id}}
-			                       {{this.name}}
-                           </li>
-			                   {{/if}}
-			                {{/each}}
-                </div>
-                </div>
-
-              <br>
-              <br>
-            <div class="subscribe">
-                <h5 class="info-text">
-                    What's your favorite ramen?
-                </h5>
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-4 col-sm6-6 col-sm-offset-3 ">
-                        <form class="form-inline" role="form" action="/" method="POST">
-                          <div class="form-group">
-                            <label class="sr-only" for="ca">Ramen</label>
-                            <input type="text" class="form-control transparent" id="ca" name="name" placeholder="Curry Fish Ramen" required>
-                          </div>
-                          <button type="submit" class="btn btn-danger btn-fill">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <h1 class="text-center" id="header-text">Ramens Mania!</h1>
+    <br>
+    <div id="ramen-def">
+      <h5>
+        <em>
+        Ramen is a Japanese dish. It consists of Chinese-style wheat noodles served in a meat or fish-based broth, often flavored with soy sauce or miso, and uses toppings such as sliced pork, dried seaweed, menma, and green onions.
+        </em>
+        <a href="https://en.wikipedia.org/wiki/Ramen">Wiki Pedia</a>
+      </h5>
+      <hr>
     </div>
+
+    <div id="ramen-content">
+  <div class="row">
+    <div class="col-md-6">
+        <h2>Orders</h2>
+			     {{#each ramens}}
+			        {{#unless this.slurped}}
+                <h5>
+                  <img src="assets/img/ramen.png" width="30px">
+			           {{this.id}}
+			        {{this.name}}
+            </h5>
+            <form action="/{{this.id}}?_method=PUT" method="POST">
+			 <input type="hidden" name="slurped" value="true">
+			    <button class="btn btn-info" type="submit">Slurped It!</button>
+	         </form>
+           <br>
+			   {{/unless}}
+			      {{/each}}
+                </div>
+
+          <div class="col-md-6">
+              <h2>Slurped</h2>
+			           {{#each ramens}}
+			            {{#if this.slurped}}
+                    <h5>
+                      <img src="assets/img/ramen.png" width="30px">
+			      	          {{this.id}}
+			                   {{this.name}}
+                    </h5>
+                    <br>
+			            {{/if}}
+			           {{/each}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="ramen-form">
+            <div class="col-lg-12">
+              <h5>What's your favorite ramen?</h5>
+                <form class="form-inline" role="form" action="/" method="POST">
+                  <div class="form-group">
+                    <label class="sr-only" for="ca">Ramen</label>
+                    <input type="text" class="form-control transparent" id="ca" name="name" placeholder="Curry Fish Ramen" required>
+                  </div>
+                <button type="submit" class="btn btn-danger btn-fill">Submit</button>
+              </form>
+            </div>
+          </div>
+
+<footer class="container">
+  <p class="text-center">
+    Maiyer Thao &copy; 2018
+  </p>
+</footer>

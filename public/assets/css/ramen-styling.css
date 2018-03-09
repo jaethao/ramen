@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+body {
+  position: relative;
+  z-index: 1;
+  background-color: black;
+}
+
+body:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .3;
+  z-index: -1;
+  background: url("../img/ramen-bg.jpg") no-repeat fixed center;
+}
+
+h1,h2,h3,h4,h5,p {
+  color: white;
+  opacity: 1;
+}
+
+h1,h2,h3 {
+  font-family: 'Monoton', cursive;
+}
+
+hr {
+  background-color: white;
+}
+
+#header-text {
+  padding-top: 1em;
+  font-size: 5em;
+}
+
+#ramen-content {
+  padding-top: 3em;
+}
+
+#ramen-form {
+  padding-top: 6em;
+  padding-left: 33.3%;
+}
+
+footer {
+  padding-top: 8em;
+  padding-bottom: 5em;
+}
+
+footer p {
+  color: gray;
+}
