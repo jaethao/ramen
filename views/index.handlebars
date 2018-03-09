@@ -24,7 +24,7 @@
             </h5>
             <form action="/{{this.id}}?_method=PUT" method="POST">
 			 <input type="hidden" name="slurped" value="true">
-			    <button class="btn btn-info" type="submit">Slurped It!</button>
+			    <button class="btn btn-info" type="submit">Slurp It!</button>
 	         </form>
            <br>
 			   {{/unless}}
@@ -46,16 +46,15 @@
             </div>
           </div>
         </div>
-
         <div class="row" id="ramen-form">
             <div class="col-lg-12">
-              <h5>What's your favorite ramen?</h5>
-                <form class="form-inline" role="form" action="/" method="POST">
-                  <div class="form-group">
-                    <label class="sr-only" for="ca">Ramen</label>
-                    <input type="text" class="form-control transparent" id="ca" name="name" placeholder="Curry Fish Ramen" required>
+              <h5 class="text-center">What's your favorite ramen?</h5>
+                <form role="form" action="/" method="POST">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="curry fish ramen" name="name" required>
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-danger btn-fill">Submit</button>
                   </div>
-                <button type="submit" class="btn btn-danger btn-fill">Submit</button>
               </form>
             </div>
           </div>
