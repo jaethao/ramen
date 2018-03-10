@@ -1,12 +1,21 @@
-// Set up MySQL connection.
+//hook up the mysql for use of the applicaiton.
 var mysql = require("mysql");
+require("dotenv").config();
 
+//stash connection info in variables for easy adjustment
+var dbHost = "localhost";
+var dbPort = 3306;
+var dbUser = "root";
+var dbPassword = process.env.MYSQL_PASSWORD; //saved information for personal dba in .env
+var dbDatabase = "ramen_db";
+
+//connect the application up to the mysql dba.
 var connection = mysql.createConnection({
-  port: 3306,
-  host: "localhost",
-  user: "root",
-  password: "J@d3dhere",
-  database: "ramen_db" //add database
+   host: dbHost,
+   port: dbPort,
+   user: dbUser,
+   password: dbPassword,
+   database: dbDatabase,
 });
 
 // Make connection.
